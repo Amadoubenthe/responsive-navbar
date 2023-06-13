@@ -10,8 +10,9 @@ body {
 }
 
 header{
-  background: #f1f1f1;
   position: fixed;
+  z-index: 99;
+  background: #f1f1f1;
   display: flex;
   width: 100%;
   align-items: center;
@@ -47,7 +48,6 @@ header a {
 }
 
 .login{
-  /* Supprimer l'espace en decus de l'image */
   display: flex;
 }
 
@@ -62,14 +62,29 @@ img{
 @media screen and (max-width: 1024px) {
   .btn-toggle{
     display: block;
+    cursor: pointer;
   }
 
   .navigation{
+    
     position: absolute;
     width: 240px;
     background: #f1f1f1;
-    height: calc(100vh - 100% - 1px);
+    height: calc(100vh - 100%);
     left: 0;
-    top: calc(100% + 1px)
+    top: calc(100% + 1px);
+    padding-top: 20px;
+    transition: transform 2s ease-in-out;
+    transform: translateX(-100%);
+  }
+
+  .navigation.active{
+    transform: translateX(0%);
+  }
+
+  .navigation a {
+    display: block;
+    margin: 14px 0;
+    padding: 0 20px;
   }
 }
